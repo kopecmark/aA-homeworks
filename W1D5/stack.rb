@@ -41,3 +41,35 @@ class Queue
     queue.first
   end
 end
+
+class Map
+  attr_reader :map
+
+  def initialize
+    @map = []
+  end
+
+  def set(key, value)
+    idx = map.index { |arr| arr[0] == key }
+    if idx
+      map[idx][1] = value
+    else
+      map << [key, value]
+    end
+  end
+
+  def get(key)
+    map.each { |arr| return arr[1] if arr[0] == key}
+    nil
+  end
+
+  def delete(key)
+    value = get(key)
+    map.reject! { |arr| arr[0] == key }
+  end
+
+  def show
+    print map
+  end
+
+end
