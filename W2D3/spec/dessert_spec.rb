@@ -55,8 +55,7 @@ describe Dessert do
     end
 
     it "raises an error if the amount is greater than the quantity" do
-
-      expect(green_tea.eat(60)).to raise_error("not enough left")
+      expect{green_tea.eat(60)}.to raise_error("not enough left!")
     end
   end
 
@@ -69,6 +68,8 @@ describe Dessert do
 
   describe "#make_more" do
     it "calls bake on the dessert's chef with the dessert passed in" do
+      expect(chef).to receive(:bake).with(green_tea)
+      green_tea.make_more
     end
   end
 end
