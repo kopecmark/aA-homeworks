@@ -15,9 +15,11 @@ class LRUCache
     if @cache.include?(el)
       @cache.delete(el)
       @cache << el
+
     elsif count >= @size
       @cache.shift
       @cache << el
+      
     else
       @cache << el
     end
