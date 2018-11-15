@@ -152,3 +152,126 @@
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
   [1m[36mCat Create (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["birth_date", "2009-03-31"], ["color", "brown"], ["name", "bespoke"], ["sex", "M"], ["description", "Yolo lomo stumptown pour-over narwhal."], ["created_at", "2018-11-15 06:05:40.231760"], ["updated_at", "2018-11-15 06:05:40.231760"], ["user_id", 10]]
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2018-11-14 22:16:38 -0800
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cats" for 127.0.0.1 at 2018-11-14 22:16:39 -0800
+
+SyntaxError - syntax error, unexpected '<'
+    <input
+     ^
+/Users/markkopec/Library/Mobile Documents/com~apple~CloudDocs/Ruby/Homework/aA-homeworks/W4D4/app/helpers/application_helper.rb:7: unterminated regexp meets end of file
+/Users/markkopec/Library/Mobile Documents/com~apple~CloudDocs/Ruby/Homework/aA-homeworks/W4D4/app/helpers/application_helper.rb:7: syntax error, unexpected end-of-input, expecting keyword_end:
+  app/helpers/application_helper.rb:3:in `'
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/cats_controller.rb:1:in `<top (required)>'
+
+Started POST "/__better_errors/f9a432ea72dcd268/variables" for 127.0.0.1 at 2018-11-14 22:16:39 -0800
+Started GET "/cats" for 127.0.0.1 at 2018-11-14 22:17:24 -0800
+
+SyntaxError - syntax error, unexpected tIDENTIFIER, expecting keyword_end
+      type="hidden"
+                  ^
+/Users/markkopec/Library/Mobile Documents/com~apple~CloudDocs/Ruby/Homework/aA-homeworks/W4D4/app/helpers/application_helper.rb:5: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+      name="authenticity_token"
+                              ^:
+  app/helpers/application_helper.rb:4:in `'
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/cats_controller.rb:1:in `<top (required)>'
+
+Started POST "/__better_errors/8d7ec4e5f7bd16ce/variables" for 127.0.0.1 at 2018-11-14 22:17:24 -0800
+Started GET "/cats" for 127.0.0.1 at 2018-11-14 22:21:02 -0800
+
+SyntaxError - unterminated regexp meets end of file
+/Users/markkopec/Library/Mobile Documents/com~apple~CloudDocs/Ruby/Homework/aA-homeworks/W4D4/app/helpers/application_helper.rb:7: syntax error, unexpected end-of-input, expecting keyword_end:
+  app/helpers/application_helper.rb:7:in `'
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/cats_controller.rb:1:in `<top (required)>'
+
+Started POST "/__better_errors/b6ed25aff51c3d9f/variables" for 127.0.0.1 at 2018-11-14 22:21:03 -0800
+Started GET "/cats" for 127.0.0.1 at 2018-11-14 22:21:24 -0800
+
+SyntaxError - syntax error, unexpected tIDENTIFIER, expecting keyword_end
+      type="hidden"
+                  ^
+/Users/markkopec/Library/Mobile Documents/com~apple~CloudDocs/Ruby/Homework/aA-homeworks/W4D4/app/helpers/application_helper.rb:5: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+      name="authenticity_token"
+                              ^:
+  app/helpers/application_helper.rb:4:in `'
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/cats_controller.rb:1:in `<top (required)>'
+
+Started POST "/__better_errors/94250b7868819dfa/variables" for 127.0.0.1 at 2018-11-14 22:21:25 -0800
+Started GET "/cats" for 127.0.0.1 at 2018-11-14 22:21:35 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.9ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  Rendered cats/index.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 591ms (Views: 574.7ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/cats" for 127.0.0.1 at 2018-11-14 22:21:43 -0800
+
+SyntaxError - syntax error, unexpected tIDENTIFIER, expecting keyword_end
+      type="hidden"
+                  ^
+/Users/markkopec/Library/Mobile Documents/com~apple~CloudDocs/Ruby/Homework/aA-homeworks/W4D4/app/helpers/application_helper.rb:5: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+      name="authenticity_token"
+                              ^:
+  app/helpers/application_helper.rb:4:in `'
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/cats_controller.rb:1:in `<top (required)>'
+
+Started POST "/__better_errors/9c489b404eb8243a/variables" for 127.0.0.1 at 2018-11-14 22:21:43 -0800
+Started GET "/cats" for 127.0.0.1 at 2018-11-14 22:22:26 -0800
+
+SyntaxError - syntax error, unexpected tIDENTIFIER, expecting keyword_end
+      type="hidden"
+                  ^
+/Users/markkopec/Library/Mobile Documents/com~apple~CloudDocs/Ruby/Homework/aA-homeworks/W4D4/app/helpers/application_helper.rb:5: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+      name="authenticity_token"
+                              ^:
+  app/helpers/application_helper.rb:4:in `'
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/cats_controller.rb:1:in `<top (required)>'
+
+Started POST "/__better_errors/b50b791392a61c20/variables" for 127.0.0.1 at 2018-11-14 22:22:26 -0800
+Started GET "/cats" for 127.0.0.1 at 2018-11-14 22:22:28 -0800
+
+SyntaxError - syntax error, unexpected tIDENTIFIER, expecting keyword_end
+      type="hidden"
+                  ^
+/Users/markkopec/Library/Mobile Documents/com~apple~CloudDocs/Ruby/Homework/aA-homeworks/W4D4/app/helpers/application_helper.rb:5: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+      name="authenticity_token"
+                              ^:
+  app/helpers/application_helper.rb:4:in `'
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/cats_controller.rb:1:in `<top (required)>'
+
+Started POST "/__better_errors/4435f8538423c6aa/variables" for 127.0.0.1 at 2018-11-14 22:22:28 -0800
+Started GET "/cats" for 127.0.0.1 at 2018-11-14 22:25:22 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.0ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  Rendered cats/index.html.erb within layouts/application (27.0ms)
+Completed 200 OK in 61ms (Views: 45.4ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/cats" for 127.0.0.1 at 2018-11-14 22:29:32 -0800
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  Rendered cats/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 39ms (Views: 30.6ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/cats/1" for 127.0.0.1 at 2018-11-14 22:29:35 -0800
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mUser Load (42.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCatRentalRequest Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = $1 LIMIT $2[0m  [["cat_id", 1], ["LIMIT", 1]]
+  Rendered cats/show.html.erb within layouts/application (578.7ms)
+Completed 200 OK in 606ms (Views: 551.0ms | ActiveRecord: 51.2ms)
+
+
