@@ -1,0 +1,154 @@
+  [1m[35m (522.7ms)[0m  [1m[35mCREATE DATABASE "ninety_nine_cats_development" ENCODING = 'unicode'[0m
+  [1m[35m (377.8ms)[0m  [1m[35mCREATE DATABASE "ninety_nine_cats_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "cat_rental_requests" CASCADE[0m
+  [1m[35m (56.2ms)[0m  [1m[35mCREATE TABLE "cat_rental_requests" ("id" bigserial primary key, "cat_id" integer NOT NULL, "end_date" date NOT NULL, "start_date" date NOT NULL, "status" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_cat_rental_requests_on_cat_id" ON "cat_rental_requests"  ("cat_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_cat_rental_requests_on_user_id" ON "cat_rental_requests"  ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "cats" CASCADE[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "cats" ("id" bigserial primary key, "birth_date" date NOT NULL, "color" character varying NOT NULL, "name" character varying NOT NULL, "sex" character varying(1) NOT NULL, "description" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_cats_on_user_id" ON "cats"  ("user_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "username" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (23.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170714042724)[0m
+  [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170714033951),
+(20170714042324),
+(20170714042032),
+(20170714033817);
+
+[0m
+  [1m[35m (20.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-11-15 06:05:38.760055"], ["updated_at", "2018-11-15 06:05:38.760055"]]
+  [1m[35m (14.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "cat_rental_requests" CASCADE[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "cat_rental_requests" ("id" bigserial primary key, "cat_id" integer NOT NULL, "end_date" date NOT NULL, "start_date" date NOT NULL, "status" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_cat_rental_requests_on_cat_id" ON "cat_rental_requests"  ("cat_id")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_cat_rental_requests_on_user_id" ON "cat_rental_requests"  ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "cats" CASCADE[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "cats" ("id" bigserial primary key, "birth_date" date NOT NULL, "color" character varying NOT NULL, "name" character varying NOT NULL, "sex" character varying(1) NOT NULL, "description" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_cats_on_user_id" ON "cats"  ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "username" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170714042724)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170714033951),
+(20170714042324),
+(20170714042032),
+(20170714033817);
+
+[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-11-15 06:05:38.893188"], ["updated_at", "2018-11-15 06:05:38.893188"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2018-11-15 06:05:38.897065"], ["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Britney Wunsch"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "aWhSDjqfTA8LWo8FmPd0Tg"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("password_digest", "session_token", "username", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["password_digest", "$2a$10$nucOL1mSwP8fvWchYQzoAuJMYb9i.MPlRdsagND9EMBYjZ2CJLqkq"], ["session_token", "aWhSDjqfTA8LWo8FmPd0Tg"], ["username", "Britney Wunsch"], ["created_at", "2018-11-15 06:05:39.514650"], ["updated_at", "2018-11-15 06:05:39.514650"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCat Create (0.8ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["birth_date", "2010-04-27"], ["color", "white"], ["name", "letterpress"], ["sex", "M"], ["description", "Portland bespoke keytar 90's godard."], ["created_at", "2018-11-15 06:05:39.554573"], ["updated_at", "2018-11-15 06:05:39.554573"], ["user_id", 1]]
+  [1m[35m (40.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jeannine Haag"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "5km2RjjilwR0mDwFImWnOQ"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("password_digest", "session_token", "username", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["password_digest", "$2a$10$.do8KGShc8trfeU4dRtyHeOnVvM9xfLJq24WE1NqLxq0Krg93dHKO"], ["session_token", "5km2RjjilwR0mDwFImWnOQ"], ["username", "Jeannine Haag"], ["created_at", "2018-11-15 06:05:39.667055"], ["updated_at", "2018-11-15 06:05:39.667055"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCat Create (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["birth_date", "2011-07-09"], ["color", "black"], ["name", "forage"], ["sex", "F"], ["description", "Diy wolf vegan carry pug."], ["created_at", "2018-11-15 06:05:39.670420"], ["updated_at", "2018-11-15 06:05:39.670420"], ["user_id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Clora Stracke"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "V2BmXrLsMEA7bl-0eevTWw"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("password_digest", "session_token", "username", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["password_digest", "$2a$10$0riYRUXgw6tAc8Ht/UXR/eki50iMSZ6g2z3psvQCGM2NVbupPN/Sy"], ["session_token", "V2BmXrLsMEA7bl-0eevTWw"], ["username", "Clora Stracke"], ["created_at", "2018-11-15 06:05:39.737926"], ["updated_at", "2018-11-15 06:05:39.737926"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCat Create (0.4ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["birth_date", "2014-07-28"], ["color", "brown"], ["name", "mixtape"], ["sex", "F"], ["description", "Occupy organic meggings blue bottle farm-to-table pabst muggle magic tilde squid."], ["created_at", "2018-11-15 06:05:39.741778"], ["updated_at", "2018-11-15 06:05:39.741778"], ["user_id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Brad Koss"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "5Q99uxebrhIYAr4eDhhfpw"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("password_digest", "session_token", "username", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["password_digest", "$2a$10$ZT6BTZyBL1/ShUzrqfo//urvitscZbUrZAaNJo5wkvgsd5Cgcwwue"], ["session_token", "5Q99uxebrhIYAr4eDhhfpw"], ["username", "Brad Koss"], ["created_at", "2018-11-15 06:05:39.809787"], ["updated_at", "2018-11-15 06:05:39.809787"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCat Create (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["birth_date", "2013-01-06"], ["color", "orange"], ["name", "flannel"], ["sex", "F"], ["description", "Plaid fashion axe sustainable direct trade."], ["created_at", "2018-11-15 06:05:39.813215"], ["updated_at", "2018-11-15 06:05:39.813215"], ["user_id", 4]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Tomas Lowe"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ERM56IouR3ifOIwbdAsEHg"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("password_digest", "session_token", "username", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["password_digest", "$2a$10$FK.DuJBMGrDJMfp/Ngkac.ZLoH.ANj4615X3P9PyUeenyUWUhS7me"], ["session_token", "ERM56IouR3ifOIwbdAsEHg"], ["username", "Tomas Lowe"], ["created_at", "2018-11-15 06:05:39.880922"], ["updated_at", "2018-11-15 06:05:39.880922"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCat Create (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["birth_date", "2013-02-04"], ["color", "white"], ["name", "wolf"], ["sex", "F"], ["description", "Kale chips mlkshk retro sustainable hammock kitsch irony church-key."], ["created_at", "2018-11-15 06:05:39.884434"], ["updated_at", "2018-11-15 06:05:39.884434"], ["user_id", 5]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Kraig Farrell"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vPCDk_VrJtp2Tm7Te-7f8A"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("password_digest", "session_token", "username", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["password_digest", "$2a$10$zB3dlnrBXml1AOXNgiOAyeiukKvYPrBdp69VYPvyaPFYG7kWX8Hfq"], ["session_token", "vPCDk_VrJtp2Tm7Te-7f8A"], ["username", "Kraig Farrell"], ["created_at", "2018-11-15 06:05:39.951247"], ["updated_at", "2018-11-15 06:05:39.951247"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCat Create (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["birth_date", "2014-12-08"], ["color", "white"], ["name", "whatever"], ["sex", "F"], ["description", "Bitters jean shorts yuccie selfies migas pour-over distillery occupy squid."], ["created_at", "2018-11-15 06:05:39.954846"], ["updated_at", "2018-11-15 06:05:39.954846"], ["user_id", 6]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Lorna Denesik"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "w56hhjD6z4NR3IJcg6GDlw"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("password_digest", "session_token", "username", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["password_digest", "$2a$10$VYRm1U7ebGYbG/m1KfOQFeyCjMbdSxwQA49O5Cm2/mRVfBvy7MYS6"], ["session_token", "w56hhjD6z4NR3IJcg6GDlw"], ["username", "Lorna Denesik"], ["created_at", "2018-11-15 06:05:40.023112"], ["updated_at", "2018-11-15 06:05:40.023112"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCat Create (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["birth_date", "2013-03-18"], ["color", "brown"], ["name", "slow-carb"], ["sex", "F"], ["description", "Gluten-free 3 wolf moon listicle twee pop-up stumptown fingerstache waistcoat godard."], ["created_at", "2018-11-15 06:05:40.026544"], ["updated_at", "2018-11-15 06:05:40.026544"], ["user_id", 7]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Ira Kihn"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "W4A6puz2YQeE6YEWttGfBQ"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("password_digest", "session_token", "username", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["password_digest", "$2a$10$09a2QyA5HQZXkJeRNr3KNOZUpPnJ7OJR6oio.taTFKlNr4jC8n66e"], ["session_token", "W4A6puz2YQeE6YEWttGfBQ"], ["username", "Ira Kihn"], ["created_at", "2018-11-15 06:05:40.094960"], ["updated_at", "2018-11-15 06:05:40.094960"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCat Create (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["birth_date", "2017-10-09"], ["color", "black"], ["name", "health"], ["sex", "F"], ["description", "Swag street kale chips five dollar toast ramps."], ["created_at", "2018-11-15 06:05:40.097896"], ["updated_at", "2018-11-15 06:05:40.097896"], ["user_id", 8]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Sergio Jast"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FOVzzIJkC5reqscgLPzW7g"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("password_digest", "session_token", "username", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["password_digest", "$2a$10$O3Sm3tiM9RX5p1Sp0sWAgO3RCNEpDw7I4I.oAqIU.PF8m4ppS6e5u"], ["session_token", "FOVzzIJkC5reqscgLPzW7g"], ["username", "Sergio Jast"], ["created_at", "2018-11-15 06:05:40.163225"], ["updated_at", "2018-11-15 06:05:40.163225"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCat Create (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["birth_date", "2010-04-30"], ["color", "white"], ["name", "truffaut"], ["sex", "F"], ["description", "Loko meditation sartorial dreamcatcher."], ["created_at", "2018-11-15 06:05:40.166173"], ["updated_at", "2018-11-15 06:05:40.166173"], ["user_id", 9]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Mr. Basil Balistreri"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "SzMzjYkh3RwX2NTtftCoyA"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("password_digest", "session_token", "username", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["password_digest", "$2a$10$oC93nQJRspA0UXjXnrXmV.9yBCHKlU/.nKhQ0kC1838dRkqRlDNU6"], ["session_token", "SzMzjYkh3RwX2NTtftCoyA"], ["username", "Mr. Basil Balistreri"], ["created_at", "2018-11-15 06:05:40.228774"], ["updated_at", "2018-11-15 06:05:40.228774"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCat Create (0.3ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["birth_date", "2009-03-31"], ["color", "brown"], ["name", "bespoke"], ["sex", "M"], ["description", "Yolo lomo stumptown pour-over narwhal."], ["created_at", "2018-11-15 06:05:40.231760"], ["updated_at", "2018-11-15 06:05:40.231760"], ["user_id", 10]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
