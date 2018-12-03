@@ -90,10 +90,20 @@
 /*!*****************************!*\
   !*** ./frontend/actions.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+selectLocation = function selectLocation(city, jobs) {
+  return {
+    type: "SWITCH_LOCATION",
+    city: city,
+    jobs: jobs
+  };
+};
 
+/* harmony default export */ __webpack_exports__["default"] = (selectLocation);
 
 /***/ }),
 
@@ -147,7 +157,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _job__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./job */ "./frontend/components/job.jsx");
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../actions */ "./frontend/actions.js");
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_actions__WEBPACK_IMPORTED_MODULE_2__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -186,7 +195,7 @@ function (_React$Component) {
     _this.props.store.subscribe(_this.forceUpdate);
 
     _this.cities = ["San Francisco", "Seattle", "New York", "Austin", "Remote"];
-    _this.selectLocation = _actions__WEBPACK_IMPORTED_MODULE_2___default.a.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.selectLocation = _actions__WEBPACK_IMPORTED_MODULE_2__["default"].bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -297,7 +306,17 @@ var initialState = {
 var reducer = function reducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  return state; // remove this and fill out the body of the reducer function
+
+  switch (action.type) {
+    case "SWITCH_LOCATION":
+      return {
+        city: action.city,
+        jobs: action.jobs
+      };
+
+    default:
+      return state;
+  }
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (reducer);
